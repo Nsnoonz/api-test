@@ -22,7 +22,13 @@ app.get('/api/trips', (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`))
+let server = null
+
+server = app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`)
+})
+server.timeout = 1800000
+export default app
 
 
 
