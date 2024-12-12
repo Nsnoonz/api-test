@@ -15,7 +15,7 @@ app.get('/api/trips', (req, res) => {
   const params = req.query
   if (Object.keys(params).length === 0) res.send(arrData)
   if (params.keyword != undefined) {
-    let result = arrData.trips.filter(elm => elm.tags.includes(params.keyword))
+    let result = arrData.trips.filter(elm => elm.tags.includes(params.keyword) || elm.title.includes(params.keyword) || elm.description.includes(params.title))
     res.send(result)
   } else {
     res.send('unknown keyword')
